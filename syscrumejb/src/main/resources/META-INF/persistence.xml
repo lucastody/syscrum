@@ -1,0 +1,35 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="syscrumPU" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:/syscrumDS</jta-data-source>
+		
+		<properties>
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="none" />
+		</properties>
+		
+		<class>br.com.lfcsystems.syscrum.domain.Backlog</class>
+		<class>br.com.lfcsystems.syscrum.domain.Bug</class>
+		<class>br.com.lfcsystems.syscrum.domain.Epico</class>
+		<class>br.com.lfcsystems.syscrum.domain.Estoria</class>
+		<class>br.com.lfcsystems.syscrum.domain.HistoricoItemSprint</class>
+		<class>br.com.lfcsystems.syscrum.domain.ItemBacklog</class>
+		<class>br.com.lfcsystems.syscrum.domain.ItemSprint</class>
+		<class>br.com.lfcsystems.syscrum.domain.Perfil</class>
+		<class>br.com.lfcsystems.syscrum.domain.Projeto</class>
+		<class>br.com.lfcsystems.syscrum.domain.ProjetoTime</class>
+		<class>br.com.lfcsystems.syscrum.domain.Sistema</class>
+		<class>br.com.lfcsystems.syscrum.domain.SituacaoItemSprint</class>
+		<class>br.com.lfcsystems.syscrum.domain.Sprint</class>
+		<class>br.com.lfcsystems.syscrum.domain.Tarefa</class>
+		<class>br.com.lfcsystems.syscrum.domain.Time</class>
+		<class>br.com.lfcsystems.syscrum.domain.TimeUsuario</class>
+		<class>br.com.lfcsystems.syscrum.domain.Usuario</class>
+		
+	</persistence-unit>
+</persistence>
