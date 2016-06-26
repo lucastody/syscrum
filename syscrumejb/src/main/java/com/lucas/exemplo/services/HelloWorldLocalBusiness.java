@@ -7,6 +7,6 @@ public interface HelloWorldLocalBusiness {
 	
 	void sayHelloWorld();
 	
-	void deletePessoa(Long id);
+//	void deletePessoa(Long id);
 	
 }
