@@ -11,6 +11,6 @@ public class CadastrarUsuarioBean implements CadastrarUsuarioNegocio {
 	
 	@Override
 	public void findAll() {
-		repository.findAll();
+		System.out.println(repository);
 	}
 }
