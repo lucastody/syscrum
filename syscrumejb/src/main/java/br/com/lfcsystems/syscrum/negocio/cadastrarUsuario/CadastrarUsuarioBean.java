@@ -4,13 +4,13 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 @Stateless
-public class CadastrarUsuarioBean implements CadastrarUsuarioNegocio {
+public class CadastrarUsuarioBean implements CadastrarUsuarioLocalNegocio {
 	
 	@EJB
 	private CadastrarUsuarioRepository repository;
 	
 	@Override
 	public void findAll() {
-		System.out.println(repository);
+		repository.testar();
 	}
 }

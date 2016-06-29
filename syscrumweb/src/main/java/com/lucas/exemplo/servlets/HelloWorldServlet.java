@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.lucas.exemplo.services.HelloWorldLocalBusiness;
 
-import br.com.lfcsystems.syscrum.negocio.cadastrarUsuario.CadastrarUsuarioNegocio;
+import br.com.lfcsystems.syscrum.negocio.cadastrarUsuario.CadastrarUsuarioLocalNegocio;
 
 public class HelloWorldServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -19,7 +19,7 @@ public class HelloWorldServlet extends HttpServlet {
 	private HelloWorldLocalBusiness helloWorld;
 	
 	@EJB
-	private CadastrarUsuarioNegocio cadastrarUsuarioNegocio;
+	private CadastrarUsuarioLocalNegocio cadastrarUsuarioNegocio;
 
 	public HelloWorldServlet() {
 		
