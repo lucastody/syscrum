@@ -3,12 +3,10 @@ package br.com.lfcsystems.syscrum.infra;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
-import javax.ejb.Stateless;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-@Stateless
 public abstract class AbstractCrudRepository<T, ID> extends AbstractRepository implements CrudRepository<T, ID> {
 	
 	private Class<T> persistentClass;
