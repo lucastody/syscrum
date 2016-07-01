@@ -2,7 +2,6 @@ package br.com.lfcsystems.syscrum.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +27,7 @@ public class Usuario {
 	@Column(name = "ST_ATIVO")
 	private boolean ativo;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "ID_PERFIL", insertable = true, updatable = true)
 	private Perfil perfil;
 	
