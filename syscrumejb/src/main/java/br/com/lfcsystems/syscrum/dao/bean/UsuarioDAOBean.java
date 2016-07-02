@@ -8,7 +8,6 @@ import br.com.lfcsystems.syscrum.infra.AbstractCrudRepository;
 
 @Stateless
 public class UsuarioDAOBean extends AbstractCrudRepository<Usuario, Long> implements UsuarioDAO {
-	
-	
+
 	
 }
