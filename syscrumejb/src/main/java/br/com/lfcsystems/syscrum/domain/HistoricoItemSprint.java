@@ -3,7 +3,9 @@ package br.com.lfcsystems.syscrum.domain;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -12,6 +14,14 @@ public class HistoricoItemSprint {
 
 	@EmbeddedId
 	private HistoricoItemSprintID id;
+	
+	@MapsId("itemSprintID")
+	@ManyToOne
+	@JoinColumns({
+		@JoinColumn(name = "ID_ITEM_BACKLOG", referencedColumnName = "ID_ITEM_BACKLOG"),
+		@JoinColumn(name = "ID_SPRINT", referencedColumnName = "ID_SPRINT")
+	})
+	private ItemSprint itemSprint;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_SITUACAO")

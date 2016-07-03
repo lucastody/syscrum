@@ -3,6 +3,9 @@ package br.com.lfcsystems.syscrum.domain;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +14,16 @@ public class TimeUsuario {
 	
 	@EmbeddedId
 	private TimeUsuarioID id;
+
+	@MapsId("idTime")
+	@ManyToOne
+	@JoinColumn(name = "ID_TIME")
+	private Time time;
+	
+	@MapsId("idUsuario")
+	@ManyToOne
+	@JoinColumn(name = "ID_USUARIO")
+	private Usuario usuario;
 	
 	@Column(name = "ST_ATIVO")
 	private boolean ativo;

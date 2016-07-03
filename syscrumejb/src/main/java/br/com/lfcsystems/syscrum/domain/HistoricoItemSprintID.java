@@ -5,9 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
 
 @Embeddable
 public class HistoricoItemSprintID implements Serializable {
@@ -15,14 +12,9 @@ public class HistoricoItemSprintID implements Serializable {
 	
 	@Column(name = "DT_ANDAMENTO")
 	private Date dataAndamento;
-
-	@ManyToOne
-	@JoinColumns(value = {
-		@JoinColumn(name = "ID_ITEM_BACKLOG", referencedColumnName = "ID_ITEM_BACKLOG"),
-		@JoinColumn(name = "ID_SPRINT", referencedColumnName = "ID_SPRINT")
-	})
-	private ItemSprint itemSprint;
-
+	
+	private ItemSprintID itemSprintID;
+	
 	public HistoricoItemSprintID() {
 		super();
 	}
@@ -35,12 +27,12 @@ public class HistoricoItemSprintID implements Serializable {
 		this.dataAndamento = dataAndamento;
 	}
 
-	public ItemSprint getItemSprint() {
-		return itemSprint;
+	public ItemSprintID getItemSprintID() {
+		return itemSprintID;
 	}
 
-	public void setItemSprint(ItemSprint itemSprint) {
-		this.itemSprint = itemSprint;
+	public void setItemSprintID(ItemSprintID itemSprintID) {
+		this.itemSprintID = itemSprintID;
 	}
 
 	@Override
@@ -48,7 +40,7 @@ public class HistoricoItemSprintID implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((dataAndamento == null) ? 0 : dataAndamento.hashCode());
-		result = prime * result + ((itemSprint == null) ? 0 : itemSprint.hashCode());
+		result = prime * result + ((itemSprintID == null) ? 0 : itemSprintID.hashCode());
 		return result;
 	}
 
@@ -66,10 +58,10 @@ public class HistoricoItemSprintID implements Serializable {
 				return false;
 		} else if (!dataAndamento.equals(other.dataAndamento))
 			return false;
-		if (itemSprint == null) {
-			if (other.itemSprint != null)
+		if (itemSprintID == null) {
+			if (other.itemSprintID != null)
 				return false;
-		} else if (!itemSprint.equals(other.itemSprint))
+		} else if (!itemSprintID.equals(other.itemSprintID))
 			return false;
 		return true;
 	}

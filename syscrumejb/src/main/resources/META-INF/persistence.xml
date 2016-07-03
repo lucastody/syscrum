@@ -7,13 +7,6 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<jta-data-source>java:/syscrumDS</jta-data-source>
 		
-		<properties>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="none" />
-		</properties>
-		
 		<class>br.com.lfcsystems.syscrum.domain.Backlog</class>
 		<class>br.com.lfcsystems.syscrum.domain.Bug</class>
 		<class>br.com.lfcsystems.syscrum.domain.Epico</class>
@@ -32,5 +25,11 @@
 		<class>br.com.lfcsystems.syscrum.domain.TimeUsuario</class>
 		<class>br.com.lfcsystems.syscrum.domain.Usuario</class>
 		
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="none" />
+		</properties>
 	</persistence-unit>
 </persistence>

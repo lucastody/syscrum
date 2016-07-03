@@ -2,48 +2,45 @@ package br.com.lfcsystems.syscrum.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Embeddable
 public class ProjetoTimeID implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne
-	@JoinColumn(name = "ID_PROJETO")
-	private Projeto projeto;
+	@Column(name = "ID_PROJETO")
+	private Long idProjeto;
 	
-	@ManyToOne
-	@JoinColumn(name = "ID_TIME")
-	private Time time;
+	@Column(name = "ID_TIME")
+	private Long idTime;
 	
 	public ProjetoTimeID() {
 		super();
 	}
 
-	public Projeto getProjeto() {
-		return projeto;
+	public Long getIdProjeto() {
+		return idProjeto;
 	}
 
-	public void setProjeto(Projeto projeto) {
-		this.projeto = projeto;
+	public void setIdProjeto(Long idProjeto) {
+		this.idProjeto = idProjeto;
 	}
 
-	public Time getTime() {
-		return time;
+	public Long getIdTime() {
+		return idTime;
 	}
 
-	public void setTime(Time time) {
-		this.time = time;
+	public void setIdTime(Long idTime) {
+		this.idTime = idTime;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((projeto == null) ? 0 : projeto.hashCode());
-		result = prime * result + ((time == null) ? 0 : time.hashCode());
+		result = prime * result + ((idProjeto == null) ? 0 : idProjeto.hashCode());
+		result = prime * result + ((idTime == null) ? 0 : idTime.hashCode());
 		return result;
 	}
 
@@ -56,15 +53,15 @@ public class ProjetoTimeID implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ProjetoTimeID other = (ProjetoTimeID) obj;
-		if (projeto == null) {
-			if (other.projeto != null)
+		if (idProjeto == null) {
+			if (other.idProjeto != null)
 				return false;
-		} else if (!projeto.equals(other.projeto))
+		} else if (!idProjeto.equals(other.idProjeto))
 			return false;
-		if (time == null) {
-			if (other.time != null)
+		if (idTime == null) {
+			if (other.idTime != null)
 				return false;
-		} else if (!time.equals(other.time))
+		} else if (!idTime.equals(other.idTime))
 			return false;
 		return true;
 	}

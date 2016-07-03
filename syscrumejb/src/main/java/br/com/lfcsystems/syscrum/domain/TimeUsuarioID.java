@@ -2,48 +2,45 @@ package br.com.lfcsystems.syscrum.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Embeddable
 public class TimeUsuarioID implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@ManyToOne
-	@JoinColumn(name = "ID_TIME")
-	private Time time;
 	
-	@ManyToOne
-	@JoinColumn(name = "ID_USUARIO")
-	private Usuario usuario;
+	@Column(name = "ID_TIME")
+	private Long idTime;
+	
+	@Column(name = "ID_USUARIO")
+	private Long idUsuario;
 	
 	public TimeUsuarioID() {
 		super();
 	}
 
-	public Time getTime() {
-		return time;
+	public Long getIdTime() {
+		return idTime;
 	}
 
-	public void setTime(Time time) {
-		this.time = time;
+	public void setIdTime(Long idTime) {
+		this.idTime = idTime;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public Long getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((time == null) ? 0 : time.hashCode());
-		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		result = prime * result + ((idTime == null) ? 0 : idTime.hashCode());
+		result = prime * result + ((idUsuario == null) ? 0 : idUsuario.hashCode());
 		return result;
 	}
 
@@ -56,15 +53,15 @@ public class TimeUsuarioID implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		TimeUsuarioID other = (TimeUsuarioID) obj;
-		if (time == null) {
-			if (other.time != null)
+		if (idTime == null) {
+			if (other.idTime != null)
 				return false;
-		} else if (!time.equals(other.time))
+		} else if (!idTime.equals(other.idTime))
 			return false;
-		if (usuario == null) {
-			if (other.usuario != null)
+		if (idUsuario == null) {
+			if (other.idUsuario != null)
 				return false;
-		} else if (!usuario.equals(other.usuario))
+		} else if (!idUsuario.equals(other.idUsuario))
 			return false;
 		return true;
 	}

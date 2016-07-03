@@ -2,48 +2,45 @@ package br.com.lfcsystems.syscrum.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Embeddable
 public class ItemSprintID implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne
-	@JoinColumn(name = "ID_ITEM_BACKLOG")
-	private ItemBacklog itemBacklog;
-
-	@ManyToOne
-	@JoinColumn(name = "ID_SPRINT")
-	private Sprint sprint;
+	@Column(name = "ID_ITEM_BACKLOG")
+	private Long idItemBacklog;
+	
+	@Column(name = "ID_SPRINT")
+	private Long idSprint;
 
 	public ItemSprintID() {
 		super();
 	}
 
-	public ItemBacklog getItemBacklog() {
-		return itemBacklog;
+	public Long getIdItemBacklog() {
+		return idItemBacklog;
 	}
 
-	public void setItemBacklog(ItemBacklog itemBacklog) {
-		this.itemBacklog = itemBacklog;
+	public void setIdItemBacklog(Long idItemBacklog) {
+		this.idItemBacklog = idItemBacklog;
 	}
 
-	public Sprint getSprint() {
-		return sprint;
+	public Long getIdSprint() {
+		return idSprint;
 	}
 
-	public void setSprint(Sprint sprint) {
-		this.sprint = sprint;
+	public void setIdSprint(Long idSprint) {
+		this.idSprint = idSprint;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((itemBacklog == null) ? 0 : itemBacklog.hashCode());
-		result = prime * result + ((sprint == null) ? 0 : sprint.hashCode());
+		result = prime * result + ((idItemBacklog == null) ? 0 : idItemBacklog.hashCode());
+		result = prime * result + ((idSprint == null) ? 0 : idSprint.hashCode());
 		return result;
 	}
 
@@ -56,15 +53,15 @@ public class ItemSprintID implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ItemSprintID other = (ItemSprintID) obj;
-		if (itemBacklog == null) {
-			if (other.itemBacklog != null)
+		if (idItemBacklog == null) {
+			if (other.idItemBacklog != null)
 				return false;
-		} else if (!itemBacklog.equals(other.itemBacklog))
+		} else if (!idItemBacklog.equals(other.idItemBacklog))
 			return false;
-		if (sprint == null) {
-			if (other.sprint != null)
+		if (idSprint == null) {
+			if (other.idSprint != null)
 				return false;
-		} else if (!sprint.equals(other.sprint))
+		} else if (!idSprint.equals(other.idSprint))
 			return false;
 		return true;
 	}

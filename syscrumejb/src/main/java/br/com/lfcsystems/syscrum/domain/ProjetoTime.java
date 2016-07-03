@@ -2,6 +2,9 @@ package br.com.lfcsystems.syscrum.domain;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -10,6 +13,16 @@ public class ProjetoTime {
 
 	@EmbeddedId
 	private ProjetoTimeID id;
+	
+	@MapsId("idProjeto")
+	@ManyToOne
+	@JoinColumn(name = "ID_PROJETO")
+	private Projeto projeto;
+	
+	@MapsId("idTime")
+	@ManyToOne
+	@JoinColumn(name = "ID_TIME")
+	private Time time;
 
 	public ProjetoTime() {
 		super();
@@ -21,6 +34,22 @@ public class ProjetoTime {
 
 	public void setId(ProjetoTimeID id) {
 		this.id = id;
+	}
+	
+	public Projeto getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(Projeto projeto) {
+		this.projeto = projeto;
+	}
+
+	public Time getTime() {
+		return time;
+	}
+
+	public void setTime(Time time) {
+		this.time = time;
 	}
 
 	@Override
