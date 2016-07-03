@@ -1,12 +1,12 @@
 package br.com.lfcsystems.syscrum.negocio.cadastrarUsuario;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 @Stateless
 public class CadastrarUsuarioBean implements CadastrarUsuarioLocalNegocio {
 	
-	@EJB
+	@Inject
 	private CadastrarUsuarioRepository repository;
 	
 	@Override

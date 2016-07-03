@@ -2,9 +2,6 @@ package br.com.lfcsystems.syscrum.infra;
 
 import java.util.List;
 
-import javax.ejb.Local;
-
-@Local
 public interface CrudRepository<T, ID> extends Repository {
 	
 	List<T> findAll();

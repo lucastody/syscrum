@@ -1,15 +1,13 @@
 package br.com.lfcsystems.syscrum.negocio.cadastrarUsuario;
 
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 import br.com.lfcsystems.syscrum.dao.UsuarioDAO;
 import br.com.lfcsystems.syscrum.infra.AbstractRepository;
 
-@Stateless
 public class CadastrarUsuarioRepository extends AbstractRepository {
 	
-	@EJB
+	@Inject
 	private UsuarioDAO usuarioDAO;
 	
 	public void testar() {
