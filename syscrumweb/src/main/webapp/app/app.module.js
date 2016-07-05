@@ -2,5 +2,5 @@
 
 angular.module('app', [
 	'ngRoute',
-	'app.user'
+	'app.blank'
 ]);

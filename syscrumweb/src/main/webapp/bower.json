@@ -4,6 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "3.3.6",
-    "adminlte": "2.3.3"
+    "adminlte": "2.3.3",
+    "angular-route": "~1.5.7"
   }
 }
