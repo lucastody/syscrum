@@ -9,7 +9,7 @@ angular.module('app.blank', [
 	});
 	
 	$routeProvider.when('/blank/empty', {
-		templateUrl: '../../app/components/blank/pages/empty.view.html',
+		templateUrl: '../app/components/blank/pages/empty.view.html',
 		controller: 'EmptyController'
 	});
 	
