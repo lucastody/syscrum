@@ -1,0 +1,9 @@
+{
+  "name": "webapp",
+  "version": "0.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "adminlte": "2.3.3"
+  }
+}
