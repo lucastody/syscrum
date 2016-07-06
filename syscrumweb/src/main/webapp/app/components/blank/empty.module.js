@@ -10,7 +10,8 @@ angular.module('app.blank', [
 	
 	$routeProvider.when('/blank/empty', {
 		templateUrl: 'components/blank/pages/empty.view.html',
-		controller: 'EmptyController'
+		controller: 'EmptyController',
+		controllerAs: 'ctrl'
 	});
 	
 	$routeProvider.otherwise({

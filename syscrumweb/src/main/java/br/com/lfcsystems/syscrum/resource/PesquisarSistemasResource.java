@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 
 import br.com.lfcsystems.syscrum.domain.Perfil;
 
-@Path("/sistemas")
+@Path("/pesquisar-sistemas")
 public class PesquisarSistemasResource {
 	
 	@GET
@@ -26,8 +26,11 @@ public class PesquisarSistemasResource {
 		perfil.setId(1L);
 		perfil.setNome("Perfil A");
 		perfis.add(perfil);
+		perfis.add(perfil);
+		perfis.add(perfil);
+		perfis.add(perfil);
+		perfis.add(perfil);
 		
 		return Response.ok(perfis).build();
 	}
-	
 }
