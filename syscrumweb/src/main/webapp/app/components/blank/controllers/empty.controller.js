@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.blank').controller('EmptyController', 
+angular.module('blank').controller('EmptyController', 
 
 ['$rootScope', '$scope', '$location', 'PesquisarSistemasService',
 function($rootScope, $scope, $location, PesquisarSistemasService) {

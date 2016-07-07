@@ -2,5 +2,6 @@
 
 angular.module('app', [
 	'ngRoute',
-	'app.blank'
+	'blank',
+	'sistemas'
 ]);

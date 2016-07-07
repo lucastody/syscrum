@@ -31,9 +31,9 @@
 			<!-- Logo -->
 			<a href="index2.html" class="logo">
 				<!-- mini logo for sidebar mini 50x50 pixels -->
-				<span class="logo-mini"><b>A</b>LT</span>
+				<span class="logo-mini"><b>S.C.</b></span>
 				<!-- logo for regular state and mobile devices -->
-				<span class="logo-lg"><b>Admin</b>LTE</span>
+				<span class="logo-lg"><b>Syscrum</b></span>
 			</a>
 			
 			<!-- Header Navbar -->
@@ -220,11 +220,42 @@
 				
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
-					<li class="header">HEADER</li>
-					<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-					<li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+					<li class="header">SISTEMAS</li>
+					
+					<li class="active">
+						<a href="#/sistemas/pesquisar">
+							<span>Sistemas</span>
+							<i class="fa fa-angle-left pull-right"></i>
+						</a>
+						
+						<ul class="treeview-menu">
+							<li>
+								<a href="#/sistemas/incluir">Incluir</a>
+							</li>
+						</ul>
+					</li>
+					
 					<li class="treeview">
-						<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+						<a href="#">
+							<i class="fa fa-link"></i>
+							<span>Link</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<i class="fa fa-link"></i> 
+							<span>Another Link</span>
+						</a>
+					</li>
+					
+					<li class="treeview">
+						<a href="#">
+							<i class="fa fa-link"></i>
+							<span>Multilevel</span>
+							<i class="fa fa-angle-left pull-right"></i>
+						</a>
+						
 						<ul class="treeview-menu">
 							<li><a href="#">Link in level 2</a></li>
 							<li><a href="#">Link in level 2</a></li>
@@ -332,10 +363,16 @@
 	
 	<!-- Serviços -->
 	<script src="../app/services/PesquisarSistemas.service.js"></script>
+	<script src="../app/services/IncluirSistemas.service.js"></script>
 	
 	<!-- blank -->
 	<script src="../app/components/blank/empty.module.js"></script>
 	<script src="../app/components/blank/controllers/empty.controller.js"></script>
+	
+	<!-- sistemas -->
+	<script src="../app/components/sistemas/sistemas.module.js"></script>
+	<script src="../app/components/sistemas/controllers/pesquisar.controller.js"></script>
+	<script src="../app/components/sistemas/controllers/incluir.controller.js"></script>
 </body>
 
 </html>

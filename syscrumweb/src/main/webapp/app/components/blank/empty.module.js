@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.blank', [
+angular.module('blank', [
 ])
 
 .config(['$routeProvider', function($routeProvider) {
