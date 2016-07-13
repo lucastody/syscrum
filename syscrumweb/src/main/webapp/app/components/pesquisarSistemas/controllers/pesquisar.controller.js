@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sistemas').controller('PesquisarController', 
+angular.module('pesquisarSistemas').controller('PesquisarController', 
 
 ['$rootScope', '$scope', '$location',
 function($rootScope, $scope, $location) {
