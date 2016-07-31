@@ -10,6 +10,12 @@
 </section>
 
 <section class="content">
+	<div class="col-md-12">
+		<div class="alert alert-info" ng-if="ctrl.tabelaSistemas.total() == 0">
+			<i class="icon fa fa-info"></i> Nenhum registro encontrado.
+		</div>
+	</div>
+	
 	<div class="row">
 		<div class="col-md-12">
 			<div class="box box-primary">
@@ -24,7 +30,7 @@
 								<div class="form-group">
 									<label>Nome</label>
 									<div>
-										<input type="text" class="form-control" ng-model="ctrl.filtro.nome">
+										<input type="text" class="form-control" ng-model="ctrl.filtro.nome" maxlength="50">
 									</div>
 								</div>
 							</div>

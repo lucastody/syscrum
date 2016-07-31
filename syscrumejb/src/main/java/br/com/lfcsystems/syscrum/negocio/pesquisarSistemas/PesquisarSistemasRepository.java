@@ -33,8 +33,11 @@ public class PesquisarSistemasRepository extends AbstractRepository {
 		jpql.append("ORDER BY sistema.nome ");
 		
 		Query query = entityManager.createQuery(jpql.toString());
-		query.setFirstResult((pagina == 0) ? pagina : (pagina * quantidade));
-		query.setMaxResults(quantidade);
+		
+		if(pagina != null && quantidade != null) {
+			query.setFirstResult((pagina == 0) ? pagina : (pagina * quantidade));
+			query.setMaxResults(quantidade);
+		}
 		
 		if(nome != null && !"".equals(nome)) {
 			query.setParameter("nome", "%" + nome);

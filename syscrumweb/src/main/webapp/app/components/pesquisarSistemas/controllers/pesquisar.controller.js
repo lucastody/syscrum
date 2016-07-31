@@ -10,14 +10,19 @@
 		
 		self.tabelaSistemas = new NgTableParams({
 			page: 1,
-			count: 5
+			count: 10
 		}, {
 			filterDelay: 300,
+			counts: [10, 20, 30, 40],
 			getData: function(params) {
 				self.filtro.pagina = params.page() - 1;
 				self.filtro.quantidade = params.count();
 				
 				return PesquisarSistemasService.pesquisar(self.filtro).then(function(response) {
+					if(response.lista.length > response.total) {
+						params.page(1);
+					}
+					
 					params.total(response.total);
 					return response.lista;
 				});
