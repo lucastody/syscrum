@@ -49,18 +49,18 @@
 				<div class="box-body">
 					<div class="row">
 						<div class="col-md-12">
-							<table class="table table-bordered table-striped table-hover">
+							<table ng-table="ctrl.tabelaSistemas" class="table table-bordered table-striped table-hover">
 								<thead>
 									<tr>
 										<th>Nome</th>
 										<th>Descricao</th>
 										<th>Data Inclusão</th>
-										<th style="width: 40px">Situação</th>
+										<th style="width: 40px">Ativo?</th>
 									</tr>
 								</thead>
 								
 								<tbody>
-									<tr ng-repeat="item in ctrl.sistemas">
+									<tr ng-repeat="item in $data">
 										<th>{{item.nome}}</th>
 										<th>{{item.descricao}}</th>
 										<th>{{item.dataInclusao | date:'dd/MM/yyyy'}}</th>

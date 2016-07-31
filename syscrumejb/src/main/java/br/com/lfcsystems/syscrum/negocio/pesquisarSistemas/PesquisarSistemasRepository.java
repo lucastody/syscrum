@@ -16,9 +16,41 @@ public class PesquisarSistemasRepository extends AbstractRepository {
 	private SistemaDAO sistemaDAO;
 	
 	@SuppressWarnings("unchecked")
-	public List<Sistema> pesquisar(String nome, Boolean situacao) {
+	public List<Sistema> pesquisar(Integer pagina, Integer quantidade, String nome, Boolean situacao) {
 		StringBuilder jpql = new StringBuilder();
 		jpql.append("SELECT sistema ");
+		jpql.append("FROM Sistema sistema ");
+		jpql.append("WHERE 1 = 1 ");
+		
+		if(nome != null && !"".equals(nome)) {
+			jpql.append("AND sistema.nome LIKE :nome ");
+		}
+		
+		if(situacao != null) {
+			jpql.append("AND sistema.ativo = :situacao ");
+		}
+		
+		jpql.append("ORDER BY sistema.nome ");
+		
+		Query query = entityManager.createQuery(jpql.toString());
+		query.setFirstResult((pagina == 0) ? pagina : (pagina * quantidade));
+		query.setMaxResults(quantidade);
+		
+		if(nome != null && !"".equals(nome)) {
+			query.setParameter("nome", "%" + nome);
+		}
+		
+		if(situacao != null && !"".equals(situacao)) {
+			query.setParameter("situacao", situacao);
+		}
+		
+		List<Sistema> list = query.getResultList();
+		return list;
+	}
+	
+	public Long obterTotal(String nome, Boolean situacao) {
+		StringBuilder jpql = new StringBuilder();
+		jpql.append("SELECT count(1) ");
 		jpql.append("FROM Sistema sistema ");
 		jpql.append("WHERE 1 = 1 ");
 		
@@ -40,8 +72,8 @@ public class PesquisarSistemasRepository extends AbstractRepository {
 			query.setParameter("situacao", situacao);
 		}
 		
-		List<Sistema> list = query.getResultList();
-		return list;
+		Long total = (Long) query.getSingleResult();
+		return total;
 	}
 	
 }

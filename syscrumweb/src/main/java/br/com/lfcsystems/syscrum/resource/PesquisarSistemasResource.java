@@ -1,6 +1,8 @@
 package br.com.lfcsystems.syscrum.resource;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
@@ -24,9 +26,17 @@ public class PesquisarSistemasResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response pesquisar(
 			@QueryParam("nome") String nome,
-			@QueryParam("situacao") Boolean situacao) {
+			@QueryParam("situacao") Boolean situacao,
+			@QueryParam("pagina") Integer pagina,
+			@QueryParam("quantidade") Integer quantidade) {
 		
-		List<Sistema> sistemas = pesquisarSistemasLocalNegocio.pesquisar(nome, situacao);
-		return Response.ok(sistemas).build();
+		List<Sistema> sistemas = pesquisarSistemasLocalNegocio.pesquisar(pagina, quantidade, nome, situacao);
+		Long total = pesquisarSistemasLocalNegocio.obterTotal(nome, situacao);
+		
+		Map<String, Object> resultado = new HashMap<>();
+		resultado.put("lista", sistemas);
+		resultado.put("total", total);
+		
+		return Response.ok(resultado).build();
 	}
 }

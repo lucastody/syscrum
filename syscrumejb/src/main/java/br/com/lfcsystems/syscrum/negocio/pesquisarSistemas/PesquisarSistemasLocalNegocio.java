@@ -9,6 +9,7 @@ import br.com.lfcsystems.syscrum.domain.Sistema;
 @Local
 public interface PesquisarSistemasLocalNegocio {
 	
-	List<Sistema> pesquisar(String nome, Boolean situacao);
+	List<Sistema> pesquisar(Integer pagina, Integer quantidade, String nome, Boolean situacao);
+	Long obterTotal(String nome, Boolean situacao);
 	
 }

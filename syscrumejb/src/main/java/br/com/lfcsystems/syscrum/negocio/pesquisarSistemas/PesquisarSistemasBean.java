@@ -14,7 +14,12 @@ public class PesquisarSistemasBean implements PesquisarSistemasLocalNegocio {
 	private PesquisarSistemasRepository repository;
 	
 	@Override
-	public List<Sistema> pesquisar(String nome, Boolean situacao) {
-		return repository.pesquisar(nome, situacao);
+	public List<Sistema> pesquisar(Integer pagina, Integer quantidade, String nome, Boolean situacao) {
+		return repository.pesquisar(pagina, quantidade, nome, situacao);
+	}
+
+	@Override
+	public Long obterTotal(String nome, Boolean situacao) {
+		return repository.obterTotal(nome, situacao);
 	}
 }
