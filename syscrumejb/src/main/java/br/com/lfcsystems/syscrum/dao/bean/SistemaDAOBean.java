@@ -13,7 +13,7 @@ public class SistemaDAOBean extends AbstractCrudRepository<Sistema, Long> implem
 	
 	@Override
 	public List<Sistema> listarAtivos() {
-		Query query = entityManager.createQuery("SELECT sistema FROM Sistema WHERE ativo = true");
+		Query query = entityManager.createQuery("SELECT sistema FROM Sistema sistema WHERE sistema.ativo = true");
 		return query.getResultList();
 	}
 	

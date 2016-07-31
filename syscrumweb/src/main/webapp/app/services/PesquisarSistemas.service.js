@@ -2,14 +2,11 @@
 
 angular.module('app').factory('PesquisarSistemasService', ['$http', function($http) {
 	return {
-		test: function() {
-			return $http.get('/syscrumweb/rest/pesquisar-sistemas/test', {
-				params: {
-					codigo: 123
-				}
+		pesquisar: function(filtro) {
+			return $http.get('/syscrumweb/rest/pesquisarSistemas/pesquisar', {
+				params: filtro
 			}).then(function(response) {
-				console.log('Foram retornados ' + response.data.length + ' registro(s).');
-				return response;
+				return response.data;
 			});
 		}
 	};

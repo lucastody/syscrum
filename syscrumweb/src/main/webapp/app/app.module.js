@@ -2,6 +2,7 @@
 
 angular.module('app', [
 	'ngRoute',
-	'blank',
+	'directives',
+	'ngTable',
 	'pesquisarSistemas'
 ]);

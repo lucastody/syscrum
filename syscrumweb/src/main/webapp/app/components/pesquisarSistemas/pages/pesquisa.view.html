@@ -17,42 +17,54 @@
 					<h3 class="box-title">Filtro de Pesquisa</h3>
 				</div>
 				
-				<form role="form">
+				<form role="form" ng-submit="ctrl.pesquisar()">
 					<div class="box-body">
 						<div class="row">
 							<div class="col-xs-3">
 								<div class="form-group">
 									<label>Nome</label>
-									<input type="text" class="form-control">
+									<div>
+										<input type="text" class="form-control" ng-model="ctrl.filtro.nome">
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-xs-3">
+								<div class="form-group">
+									<label>Situação</label>
+									<div>
+										<switch ng-model="ctrl.filtro.situacao" />
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-	
+					
 					<div class="box-footer">
 						<button type="submit" class="btn btn-primary">Pesquisar</button>
+						<button type="button" ng-click="ctrl.limpar()" class="btn">Limpar</button>
 					</div>
 				</form>
 				
 				<div class="box-body">
 					<div class="row">
-						<div class="col-md-8">
-							<table class="table table-bordered">
+						<div class="col-md-12">
+							<table class="table table-bordered table-striped table-hover">
 								<thead>
 									<tr>
-										<th style="width: 10px">#</th>
-										<th>Task</th>
-										<th>Progress</th>
-										<th style="width: 40px">Label</th>
+										<th>Nome</th>
+										<th>Descricao</th>
+										<th>Data Inclusão</th>
+										<th style="width: 40px">Situação</th>
 									</tr>
 								</thead>
 								
 								<tbody>
-									<tr>
-										<th>1</th>
-										<th>AAA</th>
-										<th>AAA</th>
-										<th>AAA</th>
+									<tr ng-repeat="item in ctrl.sistemas">
+										<th>{{item.nome}}</th>
+										<th>{{item.descricao}}</th>
+										<th>{{item.dataInclusao | date:'dd/MM/yyyy'}}</th>
+										<th>{{item.ativo ? 'Sim' : 'Não'}}</th>
 									</tr>
 								</tbody>
 							</table>

@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 	<link rel="stylesheet" href="../bower_components/adminlte/dist/css/AdminLTE.min.css">
 	<link rel="stylesheet" href="../bower_components/adminlte/dist/css/skins/skin-blue.min.css">
+	<link rel="stylesheet" href="../bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
+	<link rel="stylesheet" href="../bower_components/ng-table/dist/ng-table.min.css">
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -358,19 +360,29 @@
 	<!-- Angular Route 1.5.7 -->
 	<script src="../bower_components/angular-route/angular-route.min.js"></script>
 	
-	<script src="../app/app.module.js"></script>
-	<script src="../app/app.routes.js"></script>
+	<!-- Bootstrap Switch -->
+	<script src="../bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+	
+	<!-- ng-table -->
+	<script src="../bower_components/ng-table/dist/ng-table.min.js"></script>
+	
+	<script src="app.module.js"></script>
+	<script src="app.routes.js"></script>
+	
+	<!-- Diretivas -->
+	<script src="directives/directives.module.js"></script>
+	<script src="directives/switch/switch.directive.js"></script>
 	
 	<!-- Serviços -->
-	<script src="../app/services/PesquisarSistemas.service.js"></script>
+	<script src="services/PesquisarSistemas.service.js"></script>
 	
 	<!-- blank -->
-	<script src="../app/components/blank/empty.module.js"></script>
-	<script src="../app/components/blank/controllers/empty.controller.js"></script>
+	<script src="components/blank/empty.module.js"></script>
+	<script src="components/blank/controllers/empty.controller.js"></script>
 	
 	<!-- Pesquisar Sistemas -->
-	<script src="../app/components/pesquisarSistemas/pesquisarSistemas.module.js"></script>
-	<script src="../app/components/pesquisarSistemas/controllers/pesquisar.controller.js"></script>
+	<script src="components/pesquisarSistemas/pesquisarSistemas.module.js"></script>
+	<script src="components/pesquisarSistemas/controllers/pesquisar.controller.js"></script>
 </body>
 
 </html>

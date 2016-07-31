@@ -1,7 +1,11 @@
 'use strict';
 
 angular.module('app').config(['$routeProvider', function($routeProvider) {
-	$routeProvider.otherwise({
-		redirectTo: '/pesquisarSistemas'
+	
+	$routeProvider.when('/pesquisarSistemas', {
+		templateUrl: 'components/pesquisarSistemas/pages/pesquisa.view.html',
+		controller: 'PesquisarSistemasController',
+		controllerAs: 'ctrl'
 	});
+	
 }]);

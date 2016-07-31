@@ -5,6 +5,8 @@
   "dependencies": {
     "bootstrap": "3.3.6",
     "adminlte": "2.3.3",
-    "angular-route": "~1.5.7"
+    "angular-route": "~1.5.7",
+    "bootstrap-switch": "~3.3.2",
+    "ng-table": "~1.0.0"
   }
 }
