@@ -23,14 +23,22 @@
 					<h3 class="box-title">Filtro de Pesquisa</h3>
 				</div>
 				
-				<form role="form" ng-submit="ctrl.pesquisar()">
+				<form name="form" role="form" ng-submit="ctrl.pesquisar()" novalidate>
 					<div class="box-body">
 						<div class="row">
 							<div class="col-xs-3">
 								<div class="form-group">
 									<label>Nome</label>
+									<span style="color:red;">*</span>
+									
 									<div>
-										<input type="text" class="form-control" ng-model="ctrl.filtro.nome" maxlength="50">
+										<input type="text" name="nome" class="form-control" ng-model="ctrl.filtro.nome" ng-minlength="3" maxlength="50" ng-required="true">
+									</div>
+									
+									<div ng-messages="form.nome.$error" role="alert" ng-show="form.$submitted || form.nome.$touched || form.nome.$dirty" style="color:red;">
+										<div ng-repeat="(key,value) in form.nome.$error">
+											<div ng-message="{{key}}">{{ctrl.getValidation(key)}}</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -48,7 +56,7 @@
 					
 					<div class="box-footer">
 						<button type="submit" class="btn btn-primary">Pesquisar</button>
-						<button type="button" ng-click="ctrl.limpar()" class="btn">Limpar</button>
+						<button type="reset" ng-click="form.$setPristine(); ctrl.limpar()" class="btn">Limpar</button>
 					</div>
 				</form>
 				

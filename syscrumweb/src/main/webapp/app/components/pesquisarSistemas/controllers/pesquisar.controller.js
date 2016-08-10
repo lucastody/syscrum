@@ -8,6 +8,15 @@
 		
 		self.filtro = {};
 		
+		var typeValidations = {
+			'required': 'Este campo é obrigatório',
+			'minlength': 'Este campo exige um valor mínimo'
+		};
+		
+		self.getValidation = function(key) {
+			return typeValidations[key];
+		};
+		
 		self.tabelaSistemas = new NgTableParams({
 			page: 1,
 			count: 10
