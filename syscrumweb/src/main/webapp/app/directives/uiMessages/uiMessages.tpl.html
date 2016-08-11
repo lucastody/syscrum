@@ -1,0 +1,4 @@
+<div class="alert {{msg.css}} {{(msg.dismissible) ? 'alert-dismissible' : ''" ng-repeat="msg in factory.messages()">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-if="msg.dismissible">x</button>
+	<i class="icon fa {{msg.cssIcon}}"></i> {{msg.message}}
+</div>

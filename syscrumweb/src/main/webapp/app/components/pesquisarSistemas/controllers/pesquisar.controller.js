@@ -2,10 +2,11 @@
 	'use strict';
 	
 	angular.module('pesquisarSistemas').controller('PesquisarSistemasController', 
-	['$scope', 'NgTableParams', 'PesquisarSistemasService',
-	function($scope, NgTableParams, PesquisarSistemasService) {
+	['$scope', 'NgTableParams', 'PesquisarSistemasService', 'UIMessagesFactory',
+	function($scope, NgTableParams, PesquisarSistemasService, UIMessagesFactory) {
 		var self = this;
 		
+		self.messages = new UIMessagesFactory();
 		self.filtro = {};
 		
 		var typeValidations = {
@@ -33,17 +34,37 @@
 					}
 					
 					params.total(response.total);
+					
+					if(params.total() == 0) {
+						self.messages.info('Nenhum registro encontrado.');
+					}
+					
 					return response.lista;
 				});
 			}
 		});
 		
 		self.pesquisar = function() {
+			self.messages.clear();
+			
+			if(self.filtro.nome && self.filtro.nome.length < 5) {
+				self.messages.warning('Informe pelo menos 5 caracteres para efetuar a pesquisa pelo nome do sistema.', true);
+				return;
+			}
+			
 			self.tabelaSistemas.page(1);
 			self.tabelaSistemas.reload();
+			
+			/*
+			self.messages.info('Info');
+			self.messages.warning('Warning');
+			self.messages.success('Success');
+			self.messages.error('Error', true);
+			*/
 		};
 		
 		self.limpar = function() {
+			self.messages.clear();
 			self.filtro = {};
 		};
 	}]);

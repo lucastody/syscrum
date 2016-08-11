@@ -10,11 +10,7 @@
 </section>
 
 <section class="content">
-	<div class="col-md-12">
-		<div class="alert alert-info" ng-if="ctrl.tabelaSistemas.total() == 0">
-			<i class="icon fa fa-info"></i> Nenhum registro encontrado.
-		</div>
-	</div>
+	<ui-messages factory="ctrl.messages"></ui-messages>
 	
 	<div class="row">
 		<div class="col-md-12">
