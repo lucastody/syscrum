@@ -6,7 +6,6 @@
 	.factory('UIMessagesFactory', function() {
 		return function() {
 			var messages = [];
-			var count = 0;
 			
 			function fnInfo(message, dismissible) {
 				addMessage(message, dismissible, 'info', 'alert-info', 'fa-info');
@@ -25,10 +24,7 @@
 			};
 			
 			function addMessage(message, dismissible, type, css, cssIcon) {
-				count++;
-				
 				messages.push({
-					id: count,
 					message: message,
 					dismissible: dismissible || false,
 					type: type,
@@ -39,7 +35,6 @@
 			
 			function fnClear() {
 				messages = [];
-				count = 0;
 			};
 			
 			function fnGetMessages() {

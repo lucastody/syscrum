@@ -40,7 +40,7 @@ public class PesquisarSistemasRepository extends AbstractRepository {
 		}
 		
 		if(nome != null && !"".equals(nome)) {
-			query.setParameter("nome", "%" + nome);
+			query.setParameter("nome", "%" + nome + "%");
 		}
 		
 		if(situacao != null && !"".equals(situacao)) {
@@ -68,7 +68,7 @@ public class PesquisarSistemasRepository extends AbstractRepository {
 		Query query = entityManager.createQuery(jpql.toString());
 		
 		if(nome != null && !"".equals(nome)) {
-			query.setParameter("nome", "%" + nome);
+			query.setParameter("nome", "%" + nome + "%");
 		}
 		
 		if(situacao != null && !"".equals(situacao)) {
