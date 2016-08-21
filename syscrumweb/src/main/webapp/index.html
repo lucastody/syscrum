@@ -58,6 +58,7 @@
 			
 			<a href="#">I forgot my password</a><br>
 			<a href="register.html" class="text-center">Register a new membership</a>
+			<a href="#" onclick="keycloak.logout({redirectUri: 'http://localhost:8080/syscrumweb'});">Logout</a><br>
 		</div>
 	</div>
 	
@@ -68,14 +69,34 @@
 	<!-- iCheck -->
 	<script src="bower_components/adminlte/plugins/iCheck/icheck.min.js"></script>
 	
+	<!-- keycloak -->
+	<script src="bower_components/keycloak/dist/keycloak.min.js"></script>
+	<script src="bower_components/keycloak/dist/keycloak-authz.min.js"></script>
+	
 	<script>
+		/*
 		$(function () {
 			$('input').iCheck({
 				checkboxClass: 'icheckbox_square-blue',
 				radioClass: 'iradio_square-blue',
 				increaseArea: '20%' // optional
 			});
+			
+			window.keycloak = Keycloak();
+			
+			keycloak.init().success(function(authenticated) {
+				if(!authenticated) {
+					keycloak.login({
+						redirectUri: 'http://localhost:8080/syscrumweb'
+					});
+				}
+				
+				// alert(authenticated ? 'authenticated' : 'not authenticated');
+			}).error(function() {
+				alert('failed to initialize');
+			});
 		});
+		*/
 	</script>
 </body>
 

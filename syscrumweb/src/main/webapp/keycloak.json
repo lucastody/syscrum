@@ -1,0 +1,8 @@
+{
+  "realm": "syscrum",
+  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1srK/NCVFwo0utF79zRifzbalfz8/gnh2dLB5VftGf9t26X9h//a5Y5I6V5VkqyXFcpmW1HT9WIeKQNmMjaAbeP8wQYbmZOJDa6YmD6sEgb60h4IS4YDw4aoYl54FInXogNtJX81W/JHAze9puWX1iIwk0XEk0gCn5swU1cRmH0+ueFIkOUgMiHmbCvrfo/BbnREmjY1JaN98hDxYhGdeagntVWktxzSACIT5d6O4EPQ0yTc9lCxt1jIXLMH/tJVOtgwxUpBdTH+Xtg3UWEq6WT3TUH/nJaQZscC5khnAu4y0fbkMJyZ9y66T6Kv46ZZeImiG4VRcCd5ChC/xlb05wIDAQAB",
+  "auth-server-url": "http://localhost:9080/auth",
+  "ssl-required": "none",
+  "resource": "syscrum",
+  "public-client": true
+}

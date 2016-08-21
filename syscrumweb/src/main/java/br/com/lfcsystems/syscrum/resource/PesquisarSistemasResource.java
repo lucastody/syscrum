@@ -30,7 +30,14 @@ public class PesquisarSistemasResource {
 			@QueryParam("pagina") Integer pagina,
 			@QueryParam("quantidade") Integer quantidade) {
 		
-		List<Sistema> sistemas = pesquisarSistemasLocalNegocio.pesquisar(pagina, quantidade, nome, situacao);
+		List<Sistema> sistemas;
+		
+		try {
+			sistemas = pesquisarSistemasLocalNegocio.pesquisar(pagina, quantidade, nome, situacao);
+		} catch (Exception e) {
+			return Response.serverError().build();
+		}
+		
 		Long total = pesquisarSistemasLocalNegocio.obterTotal(nome, situacao);
 		
 		Map<String, Object> resultado = new HashMap<>();
