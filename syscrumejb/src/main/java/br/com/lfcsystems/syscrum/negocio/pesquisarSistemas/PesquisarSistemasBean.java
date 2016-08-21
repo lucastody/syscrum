@@ -14,11 +14,7 @@ public class PesquisarSistemasBean implements PesquisarSistemasLocalNegocio {
 	private PesquisarSistemasRepository repository;
 	
 	@Override
-	public List<Sistema> pesquisar(Integer pagina, Integer quantidade, String nome, Boolean situacao) throws Exception {
-		if(1 == 1) {
-			throw new Exception("Teste");
-		}
-		
+	public List<Sistema> pesquisar(Integer pagina, Integer quantidade, String nome, Boolean situacao) {
 		return repository.pesquisar(pagina, quantidade, nome, situacao);
 	}
 
