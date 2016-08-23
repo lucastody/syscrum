@@ -3,40 +3,12 @@
 	
 	angular.module('app')
 	
-	.config(['$httpProvider', function ($httpProvider) {
-		var $http, interceptor = ['$q', '$injector', function ($q, $injector) {
-			var error;
-			
-			function success(response) {
-				console.log('ok');
-				return response;
-			}
-			
-			function error(response) {
-				return $q.reject(response);
-			}
-			
-			function finn() {
-				$http = $http || $injector.get('$http');
-				
-				if($http.pendingRequests.length < 1) {
-					// $('#loadingWidget').hide();
-					console.log('terminou');
-				}
-			}
-			
-			return function (promise) {
-				//$('#loadingWidget').show();
-				console.log('iniciou');
-				return promise.then(success, error, finn);
-			}
-		}];
-		
-		$httpProvider.interceptors.push(['$q', '$injector', function($q, $injector) {
+	.config(['$provide', '$httpProvider', function ($provide, $httpProvider) {
+		$provide.factory('MyHttpInterceptor', ['$q', '$injector', function($q, $injector) {
 			var $http;
 			
 			return {
-				'request': function(config) {
+				request: function (config) {
 					$http = $http || $injector.get('$http');
 					
 					if($http.pendingRequests.length > 0) {
@@ -45,30 +17,38 @@
 						});
 					}
 					
-					return config;
+					return config || $q.when(config);
 				},
 				
-				'requestError': function(rejection) {
+				requestError: function (rejection) {
 					$.unblockUI();
 					return $q.reject(rejection);
 				},
 				
-				'response': function(response) {
+				response: function (response) {
 					$http = $http || $injector.get('$http');
 					
 					if($http.pendingRequests.length < 1) {
 						$.unblockUI();
 					}
 					
-					return response;
+					return response || $q.when(response);
 				},
 				
-				'responseError': function(rejection) {
+				responseError: function (rejection) {
 					$.unblockUI();
+					
+					if(rejection.status == 500) {
+						console.log('Server Internal Error');
+						return;
+					}
+					
 					return $q.reject(rejection);
 				}
 			};
 		}]);
+		
+		$httpProvider.interceptors.push('MyHttpInterceptor');
 	}])
 	
 	.run(function() {

@@ -8,6 +8,7 @@
 		
 		self.messages = new UIMessagesFactory();
 		self.filtro = {};
+		self.sistemas = [];
 		
 		var typeValidations = {
 			'required': 'Este campo é obrigatório',
@@ -40,6 +41,8 @@
 					}
 					
 					return response.lista;
+				}, function(error) {
+					self.messages.error('Ocorreu um erro inesperado', true);
 				});
 			}
 		});
