@@ -1,0 +1,22 @@
+{
+  "name": "webapp",
+  "version": "0.0.1",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "adminlte": "2.3.3",
+    "angular-route": "~1.5.7",
+    "bootstrap-switch": "~3.3.2",
+    "ng-table": "0.8.3",
+    "angular-messages": "~1.5.8",
+    "angular": "~1.5.8",
+    "blockUI": "blockui#*"
+  }
+}

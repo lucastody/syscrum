@@ -1,14 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>br.com.lfcsystems</groupId>
-	<artifactId>syscrum</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
 	
-	<properties>
-		<app.version>0.0.1-SNAPSHOT</app.version>
-	</properties>
+	<artifactId>syscrum</artifactId>
+	<groupId>br.com.lfcsystems</groupId>
+	<version>0.0.1-SNAPSHOT</version>
 	
 	<dependencies>
 		<dependency>
@@ -60,11 +56,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	
-	<modules>
-		
-		<module>syscrumejb</module>
-		<module>syscrumear</module>
-		<module>syscrumweb</module>
-	</modules>
 </project>
