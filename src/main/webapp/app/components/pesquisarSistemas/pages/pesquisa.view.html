@@ -1,0 +1,89 @@
+<section class="content-header">
+	<h1>
+		Pesquisar Sistemas
+	</h1>
+	
+	<ol class="breadcrumb">
+		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Pesquisar Sistemas</li>
+	</ol>
+</section>
+
+<section class="content">
+	<ui-messages factory="ctrl.messages"></ui-messages>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">Filtro de Pesquisa</h3>
+				</div>
+				
+				<form name="form" role="form" ng-submit="ctrl.pesquisar()" novalidate>
+					<div class="box-body">
+						<div class="row">
+							<div class="col-xs-3">
+								<div class="form-group">
+									<label>Nome</label>
+									<span style="color:red;">*</span>
+									
+									<div>
+										<input type="text" name="nome" class="form-control" ng-model="ctrl.filtro.nome" ng-minlength="3" maxlength="50" ng-required="true">
+									</div>
+									
+									<!-- 
+									<div ng-messages="form.nome.$error" role="alert" ng-show="form.$submitted || form.nome.$touched || form.nome.$dirty" style="color:red;">
+										<div ng-repeat="(key,value) in form.nome.$error">
+											<div ng-message="{{key}}">{{ctrl.getValidation(key)}}</div>
+										</div>
+									</div>
+									 -->
+								</div>
+							</div>
+							
+							<div class="col-xs-3">
+								<div class="form-group">
+									<label>Situação</label>
+									<div>
+										<switch ng-model="ctrl.filtro.situacao" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="box-footer">
+						<button type="submit" class="btn btn-primary">Pesquisar</button>
+						<button type="reset" ng-click="form.$setPristine(); ctrl.limpar()" class="btn">Limpar</button>
+					</div>
+				</form>
+				
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-12">
+							<table ng-table="ctrl.tabelaSistemas" class="table table-bordered table-striped table-hover">
+								<thead>
+									<tr>
+										<th>Nome</th>
+										<th>Descricao</th>
+										<th>Data Inclusão</th>
+										<th style="width: 40px">Ativo?</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+									<tr ng-repeat="item in $data">
+										<th>{{item.nome}}</th>
+										<th>{{item.descricao}}</th>
+										<th>{{item.dataInclusao | date:'dd/MM/yyyy'}}</th>
+										<th>{{item.ativo ? 'Sim' : 'Não'}}</th>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
