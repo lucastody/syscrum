@@ -24,10 +24,6 @@
 					$scope.ngModel = state;
 					$scope.$apply($scope.ngModel);
 				});
-				
-				if(!$scope.ngModel) {
-					$scope.ngModel = false;
-				}
 			}
 		};
 	});
